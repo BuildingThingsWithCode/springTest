@@ -1,11 +1,18 @@
 package springFirstTest;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class Parrot {
-	private String name= "James";
-
+	private String name;
+	
+	@PostConstruct
+	public void init() {
+		this.name = "James";
+	}
+	
 	public String getName() {
 		return name;
 	}
