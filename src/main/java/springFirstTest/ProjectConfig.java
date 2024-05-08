@@ -6,17 +6,21 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 @Configuration
-@ComponentScan(basePackages="springFirstTest")
 public class ProjectConfig {
 	
 	@Bean
-	String hello() {
-		return "hello!";
+	Parrot parrot() {
+		Parrot p = new Parrot();
+		p.setName("Talky the bird");
+		return p;
 	}
 	
 	@Bean 
-	Integer ten() {
-		return 10;
+	Person person(Parrot parrot) {
+		Person p = new Person();
+		p.setName("Dirk Diggler");
+		p.setParrot(parrot);
+		return  p;
 	}
 
 }
