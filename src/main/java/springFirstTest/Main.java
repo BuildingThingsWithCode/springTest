@@ -1,16 +1,18 @@
 package springFirstTest;
 
+import java.util.function.Supplier;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
 	public static void main(String[] args) {
 		var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
-		Parrot p = context.getBean(Parrot.class);
-		String greeting = context.getBean(String.class);
-		Integer nr = context.getBean(Integer.class);
+		Parrot p = new Parrot();
+		p.setName("Dave");
+		Supplier<Parrot> parrotSupplier = () -> p;
+		context.registerBean("parrot1",Parrot.class, parrotSupplier, l->l.setPrimary(true));
 		System.out.println(p.getName());
-		System.out.println(greeting);
-		System.out.println(nr);
+		
 		context.close();
 	}
 
