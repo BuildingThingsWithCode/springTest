@@ -1,14 +1,20 @@
 package springFirstTest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Person {
 	
-	private String name;
+	private String name = "James Jameson";
+	
+	private final Parrot parrot;
+	
 	@Autowired
-	private Parrot parrot;
+	public Person(@Qualifier("parrot1") Parrot parrot){
+		this.parrot = parrot;
+	}
 	
 	public String getName() {
 		return name;
@@ -19,8 +25,5 @@ public class Person {
 	public Parrot getParrot() {
 		return parrot;
 	}
-	public void setParrot(Parrot parrot) {
-		this.parrot = parrot;
-	}
-	
+		
 }
