@@ -1,12 +1,13 @@
 package springFirstTest;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 @Component
 public class Parrot {
-	private String name;
+	private String name = "choco";
 	
-	public Parrot() {}
 	public String getName() {
 		return name;
 	}
@@ -17,6 +18,6 @@ public class Parrot {
 	
 	@Override
 	public String toString() {
-		return "Parrot: "+name;
+		return "Parrot: " + name;
 	}
 }
