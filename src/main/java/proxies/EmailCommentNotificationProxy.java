@@ -1,5 +1,6 @@
 package proxies;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
@@ -7,6 +8,7 @@ import main.Comment;
 
 @Component
 @Primary
+@Qualifier("EMAIL")
 public class EmailCommentNotificationProxy implements CommentNotificationProxy{
 
 	@Override
