@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 
 import main.Comment;
 
-@Component
-@Qualifier("TEXT")
+@Component("TEXT")
+//@Qualifier("TEXT")
 public class TextMessageNotificationProxy implements CommentNotificationProxy {
 
 	@Override
