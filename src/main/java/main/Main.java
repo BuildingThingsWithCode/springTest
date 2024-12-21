@@ -11,11 +11,13 @@ public class Main {
 		//DBCommentRepository commentRepository = new DBCommentRepository();
 		//EmailCommentNotificationProxy commentNotificationProxy = new EmailCommentNotificationProxy();
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ProjectConfig.class);
-		CommentService commentService = context.getBean(CommentService.class);
+		CommentService commentService1 = context.getBean(CommentService.class);
+		CommentService commentService2 = context.getBean(CommentService.class);
+		System.out.println(commentService1 == commentService2);
 		Comment comment = new Comment();
 		comment.setAuthor("James Joyce");
 		comment.setText("Demo test");
-		commentService.publishComment(comment);
+		commentService1.publishComment(comment);
 
 	}
 }

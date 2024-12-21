@@ -16,7 +16,7 @@ public class CommentService {
 	private final CommentNotificationProxy commentNotificationProxy;
 	
 	@Autowired
-	public CommentService(CommentRepository commentRepository, @Qualifier("TEXT") CommentNotificationProxy commentNotificationProxy) {
+	public CommentService(CommentRepository commentRepository, @Qualifier("EMAIL") CommentNotificationProxy commentNotificationProxy) {
 		this.commentRepository = commentRepository;
 		this.commentNotificationProxy = commentNotificationProxy;
 	}
