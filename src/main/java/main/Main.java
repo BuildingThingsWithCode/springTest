@@ -19,7 +19,9 @@ public class Main {
 		Comment comment = new Comment();
 		comment.setAuthor("James Joyce");
 		comment.setText("Demo test");
-		String value = commentService.publishComment(comment);
-		logger.info(value);
+		commentService.publishComment(comment);
+		commentService.deleteComment(comment);
+		commentService.editComment(comment);
+		
 	}
 }

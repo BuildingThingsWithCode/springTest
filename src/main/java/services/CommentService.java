@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import aspects.ToLog;
 import main.Comment;
 import proxies.CommentNotificationProxy;
 import repositories.CommentRepository;
@@ -23,10 +24,17 @@ public class CommentService {
 		this.commentNotificationProxy = commentNotificationProxy;
 	}
 	
-	public String publishComment (Comment comment) {
-		//commentRepository.storeComment(comment);
-		//commentNotificationProxy.sendComment(comment);
-		logger.info("Publishing comment: "+comment.getText());
-		return "Succes";
+	public void publishComment (Comment comment) {
+		logger.info("Publishing comment: " + comment.getText());
 	}
+	
+	@ToLog
+	public void deleteComment (Comment comment) {
+		logger.info("Deleting comment: " + comment.getText());
+	}
+	
+	public void editComment(Comment comment) {
+		logger.info("Editing comment: " + comment.getText());
+	}
+	
 }
