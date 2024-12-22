@@ -1,17 +1,12 @@
 package config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-
-import proxies.EmailCommentNotificationProxy;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
-@ComponentScan(basePackages = {"proxies", "services", "repositories"})
+@ComponentScan(basePackages = {"proxies", "services", "repositories", "aspects"})
+@EnableAspectJAutoProxy
 public class ProjectConfig {
-	
-	EmailCommentNotificationProxy emailCommentNotificationProxy() {
-		return new EmailCommentNotificationProxy();
-	}
 
 }
